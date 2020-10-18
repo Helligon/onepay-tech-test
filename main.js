@@ -1,4 +1,4 @@
-import { getCsvTransactionDataForUser } from "./Parser.mjs";
+import { getTransactionDataFromCsv } from "./Ingester.mjs";
 import { csvDataSet } from "./data.mjs";
 
-getCsvTransactionDataForUser(csvDataSet, 'steve');
+console.log(getTransactionDataFromCsv(csvDataSet));
