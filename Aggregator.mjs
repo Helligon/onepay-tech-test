@@ -25,7 +25,12 @@ export class AggregatableTransactionData {
             other: 0
         }
 
-        for (const { _id, _user, transactionAmount, category } of transactionsForUser) {
+        const ids = [];
+        for (const { id, _user, transactionAmount, category } of transactionsForUser) {
+            if (ids.includes(id)) {
+                continue;
+            }
+            ids.push(id);
             spending[category] += transactionAmount;
         }
 
@@ -40,12 +45,14 @@ export class AggregatableTransactionData {
     totalSpendingAcrossAllUsers() {
         let spendingTable = [];
 
-        const uniqueUsers = Array.from(new Set(this.transactionData.map(row => row.user)))
-
-        for (const user of uniqueUsers) {
+        for (const user of this.getListOfUsers()) {
             spendingTable.push(this.totalSpendingForUser(user));
         }
 
         return spendingTable;
+    }
+
+    getListOfUsers() {
+        return Array.from(new Set(this.transactionData.map(row => row.user)));
     }
 }
