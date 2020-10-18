@@ -1,0 +1,11 @@
+{
+  "name": "onepay_tech_test",
+  "version": "1.0.0",
+  "description": "OnePay tech test submission",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main"
+  },
+  "author": "Alex Redshaw"
+}
