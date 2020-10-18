@@ -12,16 +12,6 @@ export class AggregatableTransactionData {
     orderByUserName() {
         return this.transactionData.sort((current, comparitor) => current.user.localeCompare(comparitor.user));
     }
-    
-
-    /**
-     * Returns an array of all transactions for a user 
-     * @param {string} user User to query data by
-     * @return {AggregatableTransactionData} Returns AggregatableTransactionData
-     */
-    totalTransactionsfor(user) {
-        return this.transactionData.filter(transaction => transaction.user === user);
-    }
 
     /**
      * Returns an object describing the spending of a user 
@@ -29,7 +19,7 @@ export class AggregatableTransactionData {
      * @return {SpendingData} Returns SpendingData
      */
     totalSpendingForUser(user) {
-        const transactionsForUser = this.totalTransactionsfor(user.toLowerCase());
+        const transactionsForUser = this.transactionData.filter(transaction => transaction.user === user.toLowerCase());
         let spending = {
             food: 0,
             drinks: 0,
