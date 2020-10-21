@@ -22,7 +22,7 @@ export class AggregatableTransactionData {
         const transactionsForUser = this.transactionData.filter(transaction => transaction.user === user.toLowerCase());
         let spending = {
             food: 0,
-            drinks: 0,
+            drink: 0,
             other: 0
         }
 
@@ -38,7 +38,7 @@ export class AggregatableTransactionData {
         return new SpendingData(
             user,
             spending.food,
-            spending.drinks,
+            spending.drink,
             spending.other
         );
     }

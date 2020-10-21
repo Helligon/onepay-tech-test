@@ -22,8 +22,8 @@ export function getTransactionDataFromJson(data) {
  * @return {Array<Transaction>} Returns a transaction array of all transactions.
  */
 export function getTransactionDataFromCsv(data) {
-    const userTransactions = data.split('\r\n').filter(Boolean).reverse();
-    userTransactions.pop();
+    const userTransactions = data.split('\r\n').filter(Boolean);
+    userTransactions.shift();
     
     return standardiseData(userTransactions.map(dataRow => {
         const data = dataRow.split(',');
@@ -55,6 +55,10 @@ function standardiseData(data) {
 
         if (transaction.category === 'misc') {
             transaction.setCategory('other');
+        }
+
+        if (transaction.category === 'drinks') {
+            transaction.setCategory('drink');
         }
     }
 

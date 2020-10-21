@@ -37,15 +37,15 @@ export class Transaction {
 }
 
 export class SpendingData {
-    constructor(user, food, drinks, other) {
+    constructor(user, food, drink, other) {
         this.user = user;
         this.food = food;
-        this.drinks = drinks;
+        this.drink = drink;
         this.other = other;
     }
 
     getUser() { return this.user }
     getFood() { return this.food }
-    getDrinks() { return this.drinks }
+    getDrink() { return this.drink }
     getOther() { return this.other }
 }

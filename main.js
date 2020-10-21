@@ -7,7 +7,7 @@ const totalTransactionData = new AggregatableTransactionData(
     .concat(getTransactionDataFromCsv(csvDataSet))
 );
 
-const toSentence = ({ user, food, drinks, other }) => `${user} spent £${food.toFixed(2)} on food, £${drinks.toFixed(2)} on drinks and £${other.toFixed(2)} on everything else!`;
+const toSentence = ({ user, food, drink, other }) => `${user} spent £${food.toFixed(2)} on food, £${drink.toFixed(2)} on drink and £${other.toFixed(2)} on everything else!`;
 
 // Groups transactions by user in alphabetical order
 console.table(totalTransactionData.orderByUserName());
